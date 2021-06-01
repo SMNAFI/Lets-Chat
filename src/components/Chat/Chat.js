@@ -36,15 +36,20 @@ const Chat = () => {
 
     const sendMessage = e => {
         e.preventDefault();
-
-        db.collection('chats').doc(chatId).collection('messages').add({
-            timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-            message: input,
-            uid: user.uid,
-            photo: user.photo,
-            email: user.email,
-            displayName: user.displayName
-        })
+        
+        if(chatName) {
+            db.collection('chats').doc(chatId).collection('messages').add({
+                timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+                message: input,
+                uid: user.uid,
+                photo: user.photo,
+                email: user.email,
+                displayName: user.displayName
+            })
+        }
+        else {
+            alert('Please select a room first.')
+        }
 
         setInput("");
     }

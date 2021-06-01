@@ -8,12 +8,14 @@
 }
 
 .message > p {
-    background-color: #f3f3f5;
+    background-color: #FFFFFF;
     font-size:medium;
-    padding: 15px;
-    border-radius: 20px;
+    padding: 13px 20px;
+    border-radius: 10px;
     margin: 10px;
     margin-right: auto;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    max-width: 700px;
 }
 
 .message > small {
@@ -38,6 +40,23 @@
 }
 
 .message__sender > p{
-    background-color: #3cabfa;
+    background: #232526; 
+    background: -webkit-linear-gradient(to right, #414345, #232526);  
+    background: linear-gradient(to right, #414345, #232526); 
+
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
     color: white;
+}
+
+@media only screen and (max-width: 768px) {
+    .message > p {
+        max-width: 500px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .message > p {
+        max-width: 250px;
+    }
 }

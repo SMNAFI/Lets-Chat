@@ -26,7 +26,7 @@ const Sidebar = () => {
     const addChat = () => {
         const chatName = prompt('Please enter a chat name')
 
-        if(chatName) {
+        if (chatName) {
             db.collection('chats').add({
                 chatName: chatName
             })
@@ -42,18 +42,20 @@ const Sidebar = () => {
                     <SearchIcon />
                     <input type="text" placeholder="Search" />
                 </div>
-                <IconButton variant="outlined" onClick={addChat} className="sidebar__addBtn">
-                    <AddIcon />
-                </IconButton>
             </div>
 
             <div className="sidebar__chat">
                 {
-                    chats.map(({ id, data: { chatName }}) => 
-                        <SidebarChat key={id} id = {id} chatName={chatName}/>
+                    chats.map(({ id, data: { chatName } }) =>
+                        <SidebarChat key={id} id={id} chatName={chatName} />
                     )
                 }
-                
+
+            </div>
+            <div className="sidebar__addBtn">
+                <IconButton variant="outlined" onClick={addChat} >
+                    <AddIcon className="addIcon"/>
+            </IconButton>
             </div>
         </div>
     );
